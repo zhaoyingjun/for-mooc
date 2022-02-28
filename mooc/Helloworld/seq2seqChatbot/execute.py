@@ -20,7 +20,7 @@ def preprocess_sentence(w):
     return w
 
 def create_dataset(path, num_examples):
-
+    path = os.path.dirname(__file__) + '/' + path
     lines = io.open(path, encoding='UTF-8').read().strip().split('\n')
 
     word_pairs = [[preprocess_sentence(w)for w in l.split('\t')] for l in lines[:num_examples]]
